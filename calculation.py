@@ -4,14 +4,14 @@
 #Keep prompting until the number is an integer. Each grade is in between 0 and 100..
 #Returns the number of Tests
 def getNumberOfTests():
-    while True:                                                                 #每次當要prompt user去打一d野, 都要用while true, try except
-        try:                                                                    #因為係用黎check如果user打錯野,之後有咩action/ 有咩條件話比user知
-            number = int(input("Enter the number of Tests: "))                  #input = 用黎prompt user, 要將個message save去一個variable
+    while True:                                                                 
+        try:                                                                   
+            number = int(input("Enter the number of Tests: "))                  
 
         except ValueError:
             print("Please enter an integer number")    
         else:
-            if(0 <= number <= 100):                                             # to do the number in range : x < number < x
+            if(0 <= number <= 100):                                            
                 break
     return number    
 
@@ -84,8 +84,8 @@ def checkWeights(weightAssign = 0.4, weightMidterm = 0.35, wFinal = 0.25):
 #6    
 #calculate the numeric grade as specified in the course outline
 def calculateNumericGrade(AvgAssignments,AvgTests,final,wOfAssign,wOfMidTerms,wFinal):                      
-    percent_grade = ((AvgAssignments * wOfAssign) + (AvgTests * wOfMidTerms) + (final * wFinal))            # 60 * 0.4 + 70 * 0.35 + 80 * 0.25
-                                                                                                        #條式前面個數係攞到既分,幾分唔重要,只係用黎計比重
+    percent_grade = ((AvgAssignments * wOfAssign) + (AvgTests * wOfMidTerms) + (final * wFinal))            
+                                                                                                        
     print(percent_grade)
     
     if  90 <= percent_grade <= 100 :
@@ -158,8 +158,8 @@ while True:
     wOfAssign = getWeightOfAssignments()
     wOfMidTerms = getWeightOfMidTerms()
     wFinal = getWeightOfFinal()
-    if checkWeights(wOfAssign, wOfMidTerms, wFinal):                                      #如果呢3個數加埋唔係=1, 就會一直loop果3個function
-        break                                                                             #直至checkWeights 3個數加埋係=1, 就break loop
+    if checkWeights(wOfAssign, wOfMidTerms, wFinal):                                    
+        break                                                                            
     else:
         print("Please enter the values equals to 1")
 #9
@@ -170,8 +170,8 @@ while True:
         AvgAssignments = float(input("Enter the average grade obtained on the assignments: ")) 
     except ValueError:
         print("Please enter a number")
-    else:                                                                                   # to do the number out of range
-        if 0 > AvgAssignments or AvgAssignments > 100:                                      # (x > number) or (number > x)
+    else:                                                                                  
+        if 0 > AvgAssignments or AvgAssignments > 100:                                     
             print("Please enter the number between 0 and 100")
         else:
             break
@@ -184,17 +184,17 @@ while True:
 num_test = getNumberOfTests()
 acc_value = 0
 
-for i in range(num_test):                                                               #當range由0至user打既數字範圍內
+for i in range(num_test):                                                              
     while True:
         try:
-            test_grade = float(input("Enter the test grade: "))                         #refer返一開始打左有幾多個test, 每個test攞左幾分
+            test_grade = float(input("Enter the test grade: "))                        
         except ValueError:
             print("Please enter a number: ")
         else:
             if 0 > test_grade or test_grade  > 100:     
                 print("Please enter the number between 0 and 100")           
             else:
-                acc_value += test_grade                                                 #將每次打入去既分數加埋一齊
+                acc_value += test_grade                                                
                 break
 
 AvgTests = acc_value / num_test
